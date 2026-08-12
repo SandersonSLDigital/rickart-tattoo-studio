@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { useTranslations } from '../../i18n/ui';
+import { trabalhos } from '../../data/trabalhos';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+
+const img1 = trabalhos.find((tr) => tr.id === 'espartano-aguia')!.imagem;
+const img2 = trabalhos.find((tr) => tr.id === 'bussola')!.imagem;
+---
+
+<Base lang={lang} page="about" title={t.meta.titleAbout} description={t.meta.descriptionHome}>
+  <section class="section about-section">
+    <div class="container about-grid">
+      <div class="copy">
+        <p class="eyebrow">{t.aboutPage.kicker}</p>
+        <h1>{t.aboutPage.title}</h1>
+        <p class="lede">{t.aboutPage.paragraph1}</p>
+        <p>{t.aboutPage.paragraph2}</p>
+        <p>{t.aboutPage.paragraph3}</p>
+        <blockquote>&ldquo;{t.aboutPage.quote}&rdquo;</blockquote>
+        <a class="btn btn-solid" href="https://www.instagram.com/rickarttattoo_fl/" target="_blank" rel="noopener">
+          {t.aboutPage.cta}
+        </a>
+      </div>
+      <div class="figures">
+        <figure>
+          <Image src={img1} alt="" widths={[420, 700]} sizes="(min-width: 860px) 30vw, 80vw" loading="eager" />
+        </figure>
+        <figure class="offset">
+          <Image src={img2} alt="" widths={[380, 600]} sizes="(min-width: 860px) 24vw, 70vw" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about-section {
+    padding-block-start: calc(var(--header-h) + var(--section-pad));
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .copy h1 {
+    margin-block: 0.6rem 1.4rem;
+  }
+
+  .copy p {
+    max-width: 54ch;
+  }
+
+  blockquote {
+    margin-block: 1.8rem;
+    padding-inline-start: 1.1rem;
+    border-inline-start: 2px solid var(--ash);
+  }
+
+  .figures {
+    position: relative;
+  }
+
+  .figures figure {
+    margin: 0;
+    border: 1px solid var(--bone-faint);
+  }
+
+  .figures .offset {
+    margin-top: -3rem;
+    margin-left: 18%;
+    width: 78%;
+    border: 4px solid var(--ink);
+  }
+
+  @media (min-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+  }
+</style>

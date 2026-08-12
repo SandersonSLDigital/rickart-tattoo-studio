@@ -1,0 +1,78 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { useTranslations } from '../i18n/ui';
+import { pathFor, type Lang } from '../i18n/routes';
+import type { Estilo } from '../data/trabalhos';
+
+interface Props {
+  lang: Lang;
+  estilo: Estilo;
+  image: ImageMetadata;
+}
+
+const { lang, estilo, image } = Astro.props;
+const t = useTranslations(lang);
+
+const styleData = {
+  realismo: t.styles.realism,
+  'fine-line': t.styles.fineLine,
+  'old-school': t.styles.oldSchool,
+}[estilo];
+
+const href = `${pathFor('portfolio', lang)}?estilo=${estilo}`;
+---
+
+<a class="style-card" href={href}>
+  <div class="frame">
+    <Image src={image} alt="" widths={[400, 700]} sizes="(min-width: 860px) 33vw, 90vw" loading="lazy" />
+  </div>
+  <div class="plate">
+    <p class="eyebrow">{estilo === 'old-school' ? 'Old School' : estilo === 'fine-line' ? 'Fine Line' : 'Realismo'}</p>
+    <h3>{styleData.name}</h3>
+    <p class="desc">{styleData.description}</p>
+  </div>
+</a>
+
+<style>
+  .style-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--bone-faint);
+  }
+
+  .frame {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .frame :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+    filter: grayscale(0.15);
+  }
+
+  .style-card:hover .frame :global(img) {
+    transform: scale(1.035);
+    filter: grayscale(0);
+  }
+
+  .plate {
+    padding: 1.4rem 1.3rem 1.6rem;
+    background: var(--ink-raised);
+  }
+
+  .plate h3 {
+    margin-block: 0.3rem 0.5rem;
+  }
+
+  .desc {
+    font-size: 0.92rem;
+    margin: 0;
+  }
+</style>

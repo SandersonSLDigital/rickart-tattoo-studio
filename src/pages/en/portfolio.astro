@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditorialGrid from '../../components/EditorialGrid.astro';
+import { useTranslations } from '../../i18n/ui';
+import { trabalhosPorOrdem } from '../../data/trabalhos';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} page="portfolio" title={t.meta.titlePortfolio} description={t.meta.descriptionHome}>
+  <section class="section page-head">
+    <div class="container">
+      <p class="eyebrow">{t.portfolioPage.kicker}</p>
+      <h1>{t.portfolioPage.title}</h1>
+      <p class="lede">{t.portfolioPage.subtitle}</p>
+
+      <div class="filters" data-filters role="group" aria-label={t.portfolioPage.kicker}>
+        <button type="button" class="chip is-active" data-filter="all">{t.common.allWorks}</button>
+        <button type="button" class="chip" data-filter="realismo">{t.common.styleRealism}</button>
+        <button type="button" class="chip" data-filter="fine-line">{t.common.styleFineLine}</button>
+        <button type="button" class="chip" data-filter="old-school">{t.common.styleOldSchool}</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section grid-section">
+    <div class="container">
+      <EditorialGrid lang={lang} items={trabalhosPorOrdem} gallery="portfolio" emptyText={t.common.noResults} />
+    </div>
+  </section>
+</Base>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const items = document.querySelectorAll<HTMLElement>('[data-filter-item]');
+  const triplets = document.querySelectorAll<HTMLElement>('[data-triplet]');
+  const emptyState = document.querySelector<HTMLElement>('[data-empty-state]');
+
+  function applyFilter(value: string) {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const match = value === 'all' || item.dataset.estilo === value;
+      item.style.display = match ? '' : 'none';
+      if (match) visibleCount += 1;
+    });
+    triplets.forEach((triplet) => {
+      const hasVisible = Array.from(triplet.querySelectorAll<HTMLElement>('[data-filter-item]')).some(
+        (item) => item.style.display !== 'none'
+      );
+      triplet.style.display = hasVisible ? '' : 'none';
+    });
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+  }
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const value = btn.dataset.filter ?? 'all';
+      applyFilter(value);
+      const url = new URL(window.location.href);
+      if (value === 'all') url.searchParams.delete('estilo');
+      else url.searchParams.set('estilo', value);
+      window.history.replaceState({}, '', url);
+    });
+  });
+
+  const initial = new URLSearchParams(window.location.search).get('estilo');
+  if (initial) {
+    const match = document.querySelector<HTMLButtonElement>(`[data-filter="${initial}"]`);
+    match?.click();
+  }
+</script>
+
+<style>
+  .page-head {
+    padding-block-start: calc(var(--header-h) + var(--section-pad));
+    padding-block-end: 2.5rem;
+    border-bottom: 1px solid var(--bone-faint);
+  }
+
+  .page-head h1 {
+    margin-block: 0.6rem 1rem;
+  }
+
+  .lede {
+    max-width: 52ch;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2.2rem;
+  }
+
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--graphite);
+    color: var(--bone-soft);
+    padding: 0.55em 1.1em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+
+  .chip:hover {
+    border-color: var(--ash);
+    color: var(--bone);
+  }
+
+  .chip.is-active {
+    background: var(--bone);
+    color: var(--ink);
+    border-color: var(--bone);
+  }
+
+  .grid-section {
+    padding-block-start: var(--section-pad);
+  }
+</style>

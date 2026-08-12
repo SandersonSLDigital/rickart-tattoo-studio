@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} page="aftercare" title={t.meta.titleAftercare} description={t.meta.descriptionHome}>
+  <section class="section page-head">
+    <div class="container">
+      <p class="eyebrow">{t.faq.kicker}</p>
+      <h1>{t.faq.title}</h1>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container narrow">
+      <FaqAccordion title={t.faq.beforeTitle} items={t.faq.before} />
+      <FaqAccordion title={t.faq.afterTitle} items={t.faq.after} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head {
+    padding-block-start: calc(var(--header-h) + var(--section-pad));
+    padding-block-end: 1rem;
+  }
+
+  .page-head h1 {
+    margin-block: 0.6rem 0;
+    max-width: 20ch;
+  }
+
+  .faq-section {
+    padding-block-start: 2.5rem;
+  }
+
+  .narrow {
+    max-width: 46rem;
+  }
+</style>

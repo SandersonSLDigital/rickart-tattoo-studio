@@ -1,0 +1,198 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { Trabalho } from '../data/trabalhos';
+import type { Lang } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  items: Trabalho[];
+  gallery: string;
+  emptyText?: string;
+}
+
+const { lang, items, gallery, emptyText = '' } = Astro.props;
+
+const styleLabel: Record<Trabalho['estilo'], string> = {
+  realismo: lang === 'pt' ? 'Realismo' : 'Realism',
+  'fine-line': 'Fine Line',
+  'old-school': 'Old School',
+};
+
+const withFull = await Promise.all(
+  items.map(async (item) => {
+    const full = await getImage({ src: item.imagem, width: 1600 });
+    return { ...item, fullSrc: full.src };
+  })
+);
+
+// Group into triplets: [big, small, small] for the editorial rhythm.
+const groups: (typeof withFull)[] = [];
+for (let i = 0; i < withFull.length; i += 3) {
+  groups.push(withFull.slice(i, i + 3));
+}
+---
+
+<div class="editorial">
+  {
+    groups.map((group, gi) => {
+      const [big, s1, s2] = group;
+      const reversed = gi % 2 === 1;
+      return (
+        <div class:list={['triplet', { reversed }]} data-triplet>
+          <figure class="plate big" data-filter-item data-estilo={big.estilo}>
+            <button
+              type="button"
+              class="trigger"
+              data-lightbox-trigger
+              data-gallery={gallery}
+              data-full={big.fullSrc}
+              data-caption={big.legenda[lang]}
+              aria-label={big.legenda[lang]}
+            >
+              <Image
+                src={big.imagem}
+                alt={big.legenda[lang]}
+                widths={[480, 800, 1200]}
+                sizes="(min-width: 860px) 55vw, 92vw"
+                loading={gi === 0 ? 'eager' : 'lazy'}
+              />
+            </button>
+            <figcaption>
+              <span class="tag">{styleLabel[big.estilo]}</span>
+              <span class="cap">{big.legenda[lang]}</span>
+            </figcaption>
+          </figure>
+
+          {s1 && s2 && (
+            <div class="small-stack">
+              {[s1, s2].map((item) => (
+                <figure class="plate small" data-filter-item data-estilo={item.estilo}>
+                  <button
+                    type="button"
+                    class="trigger"
+                    data-lightbox-trigger
+                    data-gallery={gallery}
+                    data-full={item.fullSrc}
+                    data-caption={item.legenda[lang]}
+                    aria-label={item.legenda[lang]}
+                  >
+                    <Image
+                      src={item.imagem}
+                      alt={item.legenda[lang]}
+                      widths={[360, 600]}
+                      sizes="(min-width: 860px) 26vw, 92vw"
+                      loading="lazy"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="tag">{styleLabel[item.estilo]}</span>
+                    <span class="cap">{item.legenda[lang]}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    })
+  }
+</div>
+
+<p class="empty-state" data-empty-state hidden>{emptyText}</p>
+
+<style>
+  .editorial {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .triplet {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .small-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .plate {
+    margin: 0;
+    position: relative;
+  }
+
+  .trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .trigger :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+    display: block;
+  }
+
+  .plate.big .trigger {
+    aspect-ratio: 4 / 5;
+  }
+
+  .plate.small .trigger {
+    aspect-ratio: 16 / 11;
+  }
+
+  .trigger:hover :global(img) {
+    transform: scale(1.035);
+  }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.7rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  .cap {
+    font-size: 0.86rem;
+    color: var(--bone-soft);
+    max-width: 46ch;
+  }
+
+  .empty-state {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ash);
+    padding-block: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 860px) {
+    .triplet {
+      grid-template-columns: 1.55fr 1fr;
+    }
+
+    .triplet.reversed {
+      grid-template-columns: 1fr 1.55fr;
+    }
+
+    .triplet.reversed .plate.big {
+      order: 2;
+    }
+  }
+</style>

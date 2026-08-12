@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "siteName": "Rick'Art Tattoo Studio",
+    "titleHome": "Rick'Art Tattoo Studio — Custom Tattoos in Deerfield Beach, FL",
+    "titlePortfolio": "Portfolio — Rick'Art Tattoo Studio",
+    "titleFlash": "Flash — Rick'Art Tattoo Studio",
+    "titleAbout": "About Rick — Rick'Art Tattoo Studio",
+    "titleAftercare": "Aftercare & FAQ — Rick'Art Tattoo Studio",
+    "titleContact": "Contact — Rick'Art Tattoo Studio",
+    "descriptionHome": "Tattoo artist Rick, 12 years in the craft. Black & grey realism, fine line, and old school in a private, appointment-only studio in Deerfield Beach, Florida."
+  },
+  "nav": {
+    "portfolio": "Portfolio",
+    "flash": "Flash",
+    "about": "About",
+    "aftercare": "Aftercare",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "common": {
+    "dmCta": "Book via DM",
+    "dmShort": "DM on Instagram",
+    "instagramHandle": "@rickarttattoo_fl",
+    "viewPortfolio": "View full portfolio",
+    "viewFlash": "View flash catalog",
+    "allWorks": "All",
+    "styleRealism": "Realism",
+    "styleFineLine": "Fine Line",
+    "styleOldSchool": "Old School",
+    "noResults": "Nothing in this style yet — check back soon.",
+    "closeLightbox": "Close",
+    "next": "Next",
+    "prev": "Previous",
+    "flashBooked": "Booked",
+    "flashAvailable": "Available"
+  },
+  "hero": {
+    "kicker": "Deerfield Beach · Florida",
+    "title": "Your story,\non skin",
+    "subtitle": "12 years turning ideas into black & grey realism, fine line, and old school.",
+    "cta": "Book via DM"
+  },
+  "bio": {
+    "kicker": "Who is Rick",
+    "title": "Twelve years of needle and craft",
+    "paragraph1": "My name is Rick and I've been a professional tattoo artist for 12 years. My mission is to turn your ideas, stories, and feelings into high-quality art on skin.",
+    "paragraph2": "Whether it's a small, delicate piece to mark a memory or a large, exclusive project that covers the whole body, expect a warm welcome, strict biosafety, and the highest standard of quality.",
+    "quote": "Ready to create your next piece together?",
+    "cta": "Read the full story"
+  },
+  "styles": {
+    "kicker": "Specialties",
+    "title": "Three ways to tattoo",
+    "realism": {
+      "name": "Black and Grey Realism",
+      "description": "Shadow, depth, and striking richness of detail."
+    },
+    "fineLine": {
+      "name": "Minimalism & Fine Line",
+      "description": "Thin, precise strokes, full of delicacy."
+    },
+    "oldSchool": {
+      "name": "Old School",
+      "description": "Classic charm, with bold lines and presence."
+    }
+  },
+  "featured": {
+    "kicker": "Featured work",
+    "title": "Selected from the portfolio",
+    "cta": "View full portfolio"
+  },
+  "flashSection": {
+    "kicker": "Ready to tattoo",
+    "title": "Available flash",
+    "cta": "View full catalog"
+  },
+  "studio": {
+    "kicker": "The studio",
+    "title": "Private space, full attention",
+    "paragraph": "A private, easy-to-reach studio, built so your appointment is entirely your own — no crowded waiting room, no rush. Bookings are taken in advance, by appointment only, so you get the best possible experience.",
+    "badges": {
+      "private": "Private studio",
+      "biosafety": "Strict biosafety",
+      "appointment": "Appointment only"
+    }
+  },
+  "location": {
+    "kicker": "Find us",
+    "title": "Deerfield Beach, Florida",
+    "addressLine1": "10 Fairway Drive — Executive Suites, West Building",
+    "addressLine2": "Deerfield Beach, FL 33064",
+    "mapsCta": "Open in Google Maps",
+    "cta": "Message on Instagram"
+  },
+  "footer": {
+    "tagline": "Custom tattoos in Deerfield Beach, FL.",
+    "rights": "All rights reserved."
+  },
+  "portfolioPage": {
+    "kicker": "Portfolio",
+    "title": "Selected work",
+    "subtitle": "A curated look at recent projects. Filter by style or scroll to see everything."
+  },
+  "flashPage": {
+    "kicker": "Catalog",
+    "title": "Flash",
+    "subtitle": "Ready-to-tattoo designs, no custom design fee. Availability changes weekly — confirm on DM before showing up set on a piece."
+  },
+  "aboutPage": {
+    "kicker": "About",
+    "title": "Rick's story",
+    "paragraph1": "My name is Rick and I've been a professional tattoo artist for 12 years. My mission is to turn your ideas, stories, and feelings into high-quality art on skin.",
+    "paragraph2": "Over the years I've specialized in a few styles to deliver exactly what you're after: black and grey realism, for shadow, depth, and striking detail; minimalism and fine line, for thin, precise, delicate strokes; and old school, with the classic charm of bold lines and presence.",
+    "paragraph3": "Whether it's a small, delicate piece to mark a memory or a large, exclusive project covering the whole body, expect a warm welcome, strict biosafety, and the highest quality you deserve.",
+    "quote": "Ready to create your next piece together?",
+    "cta": "Book via DM"
+  },
+  "faq": {
+    "kicker": "Aftercare & FAQ",
+    "title": "Before and after your tattoo",
+    "beforeTitle": "Before you book",
+    "before": [
+      {
+        "q": "How do I book an appointment?",
+        "a": "Everything is arranged by Instagram DM, @rickarttattoo_fl. Send your idea, approximate size, and placement — from there we talk through the design and set a date."
+      },
+      {
+        "q": "How much does a tattoo cost?",
+        "a": "Every project is quoted individually, based on size, style, level of detail, and session length. There's no fixed price list — send a reference on DM to get a quote."
+      },
+      {
+        "q": "Do I need an appointment?",
+        "a": "Yes. The studio is private and works by advance booking only, with a set time, so you get full attention during your session."
+      },
+      {
+        "q": "Can I bring someone with me?",
+        "a": "Since the space is private and reserved for one client at a time, it's best to arrange this in advance over DM."
+      },
+      {
+        "q": "Is there a minimum age?",
+        "a": "Yes, clients must be 18 or older, with valid ID."
+      }
+    ],
+    "afterTitle": "Aftercare",
+    "after": [
+      {
+        "q": "How do I clean a fresh tattoo?",
+        "a": "Wash the area with lukewarm water and unscented, gentle soap, using a clean hand — never a sponge or loofah. Pat dry with clean paper towel, without rubbing."
+      },
+      {
+        "q": "Do I need to moisturize?",
+        "a": "Yes. Once dry, apply a thin layer of the ointment or unscented lotion I recommend, 2 to 3 times a day, through the first few weeks of healing."
+      },
+      {
+        "q": "Can I go to the beach, pool, or sun?",
+        "a": "Avoid direct sun, the ocean, pools, and baths until the skin is fully healed — usually 2 to 4 weeks, depending on size and placement."
+      },
+      {
+        "q": "Is peeling and itching normal?",
+        "a": "Yes, that's part of healing. Don't pick at scabs or scratch the area — it can pull out ink and affect the final result."
+      },
+      {
+        "q": "How long until it's fully healed?",
+        "a": "Skin usually looks healed within 2 to 3 weeks, but full healing in the deeper layers takes 4 to 6 weeks. Message me on DM with any questions during that time."
+      }
+    ]
+  },
+  "contactPage": {
+    "kicker": "Contact",
+    "title": "Ready to create your next piece together?",
+    "subtitle": "Every appointment is arranged by set time, directly on Instagram DM.",
+    "addressTitle": "Address",
+    "addressLine1": "10 Fairway Drive — Executive Suites, West Building",
+    "addressLine2": "Deerfield Beach, FL 33064",
+    "mapsCta": "Open in Google Maps",
+    "instagramTitle": "Instagram",
+    "instagramSubtitle": "Send your idea, reference, and approximate size.",
+    "cta": "Message on Instagram"
+  }
+}

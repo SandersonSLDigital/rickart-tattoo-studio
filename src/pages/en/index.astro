@@ -1,0 +1,280 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroFullBleed from '../../components/HeroFullBleed.astro';
+import BioBlock from '../../components/BioBlock.astro';
+import StyleCard from '../../components/StyleCard.astro';
+import EditorialGrid from '../../components/EditorialGrid.astro';
+import Seal from '../../components/Seal.astro';
+import { Image } from 'astro:assets';
+import { useTranslations } from '../../i18n/ui';
+import { pathFor } from '../../i18n/routes';
+import { trabalhos, trabalhosDestaque } from '../../data/trabalhos';
+import { flashPieces } from '../../data/flash';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+
+const heroImage = trabalhos.find((tr) => tr.id === 'leao-relogio')!.imagem;
+const realismoImg = trabalhos.find((tr) => tr.id === 'leao-elmo')!.imagem;
+const fineLineImg = trabalhos.find((tr) => tr.id === 'koi')!.imagem;
+const oldSchoolImg = trabalhos.find((tr) => tr.id === 'palmeiras')!.imagem;
+const flashStrip = flashPieces.slice(0, 8);
+---
+
+<Base lang={lang} page="home" title={t.meta.titleHome} description={t.meta.descriptionHome}>
+  <HeroFullBleed lang={lang} image={heroImage} />
+
+  <BioBlock lang={lang} />
+
+  <section class="section styles-section reveal">
+    <div class="container">
+      <p class="eyebrow">{t.styles.kicker}</p>
+      <h2>{t.styles.title}</h2>
+      <div class="styles-grid">
+        <StyleCard lang={lang} estilo="realismo" image={realismoImg} />
+        <StyleCard lang={lang} estilo="fine-line" image={fineLineImg} />
+        <StyleCard lang={lang} estilo="old-school" image={oldSchoolImg} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section featured-section reveal">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{t.featured.kicker}</p>
+          <h2>{t.featured.title}</h2>
+        </div>
+        <a class="text-link" href={pathFor('portfolio', lang)}>{t.featured.cta} &rarr;</a>
+      </div>
+      <EditorialGrid lang={lang} items={trabalhosDestaque} gallery="home-featured" />
+    </div>
+  </section>
+
+  <section class="section flash-section reveal">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{t.flashSection.kicker}</p>
+          <h2>{t.flashSection.title}</h2>
+        </div>
+        <a class="text-link" href={pathFor('flash', lang)}>{t.flashSection.cta} &rarr;</a>
+      </div>
+    </div>
+    <div class="flash-strip">
+      {
+        flashStrip.map((piece, i) => (
+          <button
+            type="button"
+            class="flash-trigger"
+            data-lightbox-trigger
+            data-gallery="home-flash"
+            data-full={piece.imagem.src}
+            data-caption=""
+            aria-label={`Flash ${i + 1}`}
+          >
+            <Image src={piece.imagem} alt="" widths={[260, 420]} sizes="40vw" loading="lazy" />
+          </button>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section studio-section reveal">
+    <div class="container studio-grid">
+      <div class="studio-copy">
+        <p class="eyebrow">{t.studio.kicker}</p>
+        <h2>{t.studio.title}</h2>
+        <p class="lede">{t.studio.paragraph}</p>
+        <ul class="badges">
+          <li><Seal label="STUDIO ·" size={56} rotate={0} /> {t.studio.badges.private}</li>
+          <li><Seal label="BIOSAFETY ·" size={56} rotate={0} /> {t.studio.badges.biosafety}</li>
+          <li><Seal label="BY APPT ·" size={56} rotate={0} /> {t.studio.badges.appointment}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section location-section reveal">
+    <div class="container location-grid">
+      <div class="location-copy">
+        <p class="eyebrow">{t.location.kicker}</p>
+        <h2>{t.location.title}</h2>
+        <p class="address">
+          {t.location.addressLine1}<br />
+          {t.location.addressLine2}
+        </p>
+        <div class="location-ctas">
+          <a class="btn btn-outline" href="https://maps.app.goo.gl/CMp4T97fyD5yoC3x6" target="_blank" rel="noopener">
+            {t.location.mapsCta}
+          </a>
+          <a class="btn btn-solid" href="https://www.instagram.com/rickarttattoo_fl/" target="_blank" rel="noopener">
+            {t.location.cta}
+          </a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe
+          title="Rick'Art Tattoo Studio — Google Maps"
+          src="https://maps.google.com/maps?q=10+Fairway+Drive,+Deerfield+Beach,+FL+33064&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .text-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bone);
+    border-bottom: 1px solid var(--ash);
+    padding-bottom: 0.2rem;
+    white-space: nowrap;
+  }
+
+  .text-link:hover {
+    border-color: var(--bone);
+  }
+
+  .styles-section,
+  .featured-section {
+    border-top: 1px solid var(--bone-faint);
+  }
+
+  .styles-section h2,
+  .flash-section > .container h2,
+  .studio-section h2,
+  .location-section h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .styles-grid {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  @media (min-width: 860px) {
+    .styles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .flash-section {
+    border-top: 1px solid var(--bone-faint);
+  }
+
+  .flash-strip {
+    display: flex;
+    gap: 0.9rem;
+    overflow-x: auto;
+    padding-inline: var(--gutter);
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+  }
+
+  .flash-trigger {
+    flex: 0 0 auto;
+    width: 46vw;
+    max-width: 220px;
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    border: 1px solid var(--bone-faint);
+    background: var(--ink-raised);
+    cursor: pointer;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  .flash-trigger :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .studio-section,
+  .location-section {
+    border-top: 1px solid var(--bone-faint);
+  }
+
+  .lede {
+    max-width: 46ch;
+  }
+
+  .badges {
+    list-style: none;
+    margin: 2.2rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+
+  .badges li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--bone-soft);
+  }
+
+  .location-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .address {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--bone-soft);
+  }
+
+  .location-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.6rem;
+  }
+
+  .map-frame {
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--bone-faint);
+    filter: grayscale(0.55) brightness(0.88) contrast(1.05);
+  }
+
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @media (min-width: 860px) {
+    .location-grid {
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+    }
+
+    .map-frame {
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 320px;
+    }
+  }
+</style>

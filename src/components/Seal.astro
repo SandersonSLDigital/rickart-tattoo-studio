@@ -1,0 +1,43 @@
+---
+interface Props {
+  label: string;
+  size?: number;
+  rotate?: number;
+  class?: string;
+}
+
+const { label, size = 84, rotate = -5, class: className = '' } = Astro.props;
+const pathId = `seal-arc-${crypto.randomUUID().slice(0, 8)}`;
+---
+
+<svg
+  class={`seal ${className}`}
+  width={size}
+  height={size}
+  viewBox="0 0 100 100"
+  style={`--seal-rotate:${rotate}deg`}
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <path id={pathId} d="M 12,50 A 38,38 0 0 1 88,50" />
+  </defs>
+  <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
+  <circle cx="50" cy="50" r="41" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55" />
+  <text font-family="'JetBrains Mono', monospace" font-size="7.4" letter-spacing="1.5" fill="currentColor">
+    <textPath href={`#${pathId}`} startOffset="50%" text-anchor="middle">{label}</textPath>
+  </text>
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.9">
+    <line x1="38" y1="60" x2="62" y2="72" />
+    <line x1="62" y1="60" x2="38" y2="72" />
+  </g>
+  <circle cx="50" cy="66" r="3.2" fill="currentColor" opacity="0.9" />
+</svg>
+
+<style>
+  .seal {
+    color: var(--bone);
+    transform: rotate(var(--seal-rotate, 0deg));
+    flex-shrink: 0;
+  }
+</style>

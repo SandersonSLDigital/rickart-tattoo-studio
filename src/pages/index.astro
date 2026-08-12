@@ -1,0 +1,22 @@
+---
+// Language gateway: detects the browser's language and sends the visitor to
+// /pt/ or /en/. No-JS and crawlers fall back to /pt/ via the meta refresh.
+---
+
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/pt/" />
+    <link rel="canonical" href="/pt/" />
+    <title>Rick'Art Tattoo Studio</title>
+  </head>
+  <body>
+    <p><a href="/pt/">Português</a> · <a href="/en/">English</a></p>
+    <script>
+      const preferred = (navigator.language || 'pt').toLowerCase();
+      const target = preferred.startsWith('en') ? '/en/' : '/pt/';
+      window.location.replace(target);
+    </script>
+  </body>
+</html>

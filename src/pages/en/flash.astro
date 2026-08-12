@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import FlashGrid from '../../components/FlashGrid.astro';
+import { useTranslations } from '../../i18n/ui';
+import { flashPieces } from '../../data/flash';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} page="flash" title={t.meta.titleFlash} description={t.meta.descriptionHome}>
+  <section class="section page-head">
+    <div class="container">
+      <p class="eyebrow">{t.flashPage.kicker}</p>
+      <h1>{t.flashPage.title}</h1>
+      <p class="lede">{t.flashPage.subtitle}</p>
+    </div>
+  </section>
+
+  <section class="section grid-section">
+    <div class="container">
+      <FlashGrid lang={lang} items={flashPieces} gallery="flash-page" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head {
+    padding-block-start: calc(var(--header-h) + var(--section-pad));
+    padding-block-end: 2.5rem;
+    border-bottom: 1px solid var(--bone-faint);
+  }
+
+  .page-head h1 {
+    margin-block: 0.6rem 1rem;
+  }
+
+  .lede {
+    max-width: 56ch;
+  }
+
+  .grid-section {
+    padding-block-start: var(--section-pad);
+  }
+</style>

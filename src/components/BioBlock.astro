@@ -1,0 +1,90 @@
+---
+import { useTranslations } from '../i18n/ui';
+import { pathFor, type Lang } from '../i18n/routes';
+import Seal from './Seal.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="bio section reveal">
+  <div class="container grid">
+    <div class="label-col">
+      <p class="eyebrow">{t.bio.kicker}</p>
+      <Seal label="RICK · ART · TATTOO ·" size={104} rotate={-8} class="bio-seal" />
+    </div>
+
+    <div class="copy-col">
+      <h2>{t.bio.title}</h2>
+      <p class="lede">{t.bio.paragraph1}</p>
+      <p>{t.bio.paragraph2}</p>
+      <blockquote>&ldquo;{t.bio.quote}&rdquo;</blockquote>
+      <a class="text-link" href={pathFor('about', lang)}>{t.bio.cta} &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bio {
+    border-top: 1px solid var(--bone-faint);
+  }
+
+  .grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .label-col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .copy-col {
+    max-width: 40rem;
+  }
+
+  .copy-col h2 {
+    margin-bottom: 1.4rem;
+  }
+
+  blockquote {
+    margin-block: 1.6rem;
+    padding-inline-start: 1.1rem;
+    border-inline-start: 2px solid var(--ash);
+  }
+
+  .text-link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bone);
+    border-bottom: 1px solid var(--ash);
+    padding-bottom: 0.2rem;
+  }
+
+  .text-link:hover {
+    border-color: var(--bone);
+  }
+
+  @media (min-width: 860px) {
+    .grid {
+      grid-template-columns: 12rem 1fr;
+      gap: 3rem;
+    }
+
+    .label-col {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

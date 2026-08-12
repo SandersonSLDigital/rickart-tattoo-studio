@@ -1,0 +1,97 @@
+---
+import { useTranslations } from '../i18n/ui';
+import type { Lang } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<a
+  class="dm-float"
+  data-dm-float
+  href="https://www.instagram.com/rickarttattoo_fl/"
+  target="_blank"
+  rel="noopener"
+>
+  <span class="dot" aria-hidden="true"></span>
+  {t.common.dmCta}
+</a>
+
+<script>
+  const el = document.querySelector('[data-dm-float]');
+  if (el) {
+    const onScroll = () => {
+      el.classList.toggle('is-visible', window.scrollY > 240);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>
+
+<style>
+  .dm-float {
+    position: fixed;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--bone);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+
+  .dm-float.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+
+  /* Mobile: fixed bottom bar */
+  .dm-float {
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: 1rem;
+    border-top: 1px solid var(--graphite);
+  }
+
+  @media (min-width: 860px) {
+    .dm-float {
+      inset-inline: auto;
+      inset-inline-end: 1.75rem;
+      inset-block-end: 1.75rem;
+      inset-block-start: auto;
+      padding: 0.9em 1.4em;
+      border: 1px solid var(--bone);
+      border-radius: 2px;
+    }
+
+    .dm-float:hover {
+      background: transparent;
+      color: var(--bone);
+    }
+
+    .dm-float:hover .dot {
+      background: var(--bone);
+    }
+  }
+</style>

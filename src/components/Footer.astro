@@ -1,0 +1,147 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/marca/logo.png';
+import { useTranslations } from '../i18n/ui';
+import { pathFor, alternateLang, languages, type Lang, type PageKey } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const t = useTranslations(lang);
+const otherLang = alternateLang(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container grid">
+    <div class="col">
+      <a href={pathFor('home', lang)} class="mark">
+        <Image src={logo} alt="" width={44} height={44} loading="lazy" />
+        <span>Rick'Art Tattoo Studio</span>
+      </a>
+      <p class="tagline">{t.footer.tagline}</p>
+    </div>
+
+    <div class="col">
+      <p class="eyebrow">{t.location.kicker}</p>
+      <p class="address">
+        {t.location.addressLine1}<br />
+        {t.location.addressLine2}
+      </p>
+    </div>
+
+    <div class="col">
+      <p class="eyebrow">Instagram</p>
+      <a class="ig-link" href="https://www.instagram.com/rickarttattoo_fl/" target="_blank" rel="noopener">
+        {t.common.instagramHandle}
+      </a>
+      <a class="lang-switch" href={pathFor(page, otherLang)} hreflang={otherLang}>
+        {languages[otherLang]}
+      </a>
+    </div>
+  </div>
+
+  <div class="container bottom">
+    <p>&copy; {year} Rick'Art Tattoo Studio. {t.footer.rights}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--bone-faint);
+    padding-block-start: 4rem;
+    background: var(--ink-raised);
+  }
+
+  .grid {
+    display: grid;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--bone);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mark :global(img) {
+    border-radius: 50%;
+  }
+
+  .tagline {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    max-width: 26ch;
+    margin: 0;
+  }
+
+  .address {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--bone-soft);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .ig-link {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--bone);
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .ig-link:hover {
+    text-decoration: underline;
+  }
+
+  .lang-switch {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: var(--ash);
+    width: fit-content;
+    margin-top: 0.4rem;
+  }
+
+  .lang-switch:hover {
+    color: var(--bone);
+  }
+
+  .bottom {
+    border-top: 1px solid var(--bone-faint);
+    padding-block: 1.4rem;
+  }
+
+  .bottom p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--graphite);
+  }
+
+  @media (min-width: 700px) {
+    .grid {
+      grid-template-columns: 1.3fr 1fr 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "siteName": "Rick'Art Tattoo Studio",
+    "titleHome": "Rick'Art Tattoo Studio — Tatuagem autoral em Deerfield Beach, FL",
+    "titlePortfolio": "Portfólio — Rick'Art Tattoo Studio",
+    "titleFlash": "Flash — Rick'Art Tattoo Studio",
+    "titleAbout": "Sobre o Rick — Rick'Art Tattoo Studio",
+    "titleAftercare": "Cuidados e Dúvidas — Rick'Art Tattoo Studio",
+    "titleContact": "Contato — Rick'Art Tattoo Studio",
+    "descriptionHome": "Tatuador Rick, 12 anos de profissão. Realismo black & grey, fine line e old school em estúdio privado, com hora marcada, em Deerfield Beach, Flórida."
+  },
+  "nav": {
+    "portfolio": "Portfólio",
+    "flash": "Flash",
+    "about": "Sobre",
+    "aftercare": "Cuidados",
+    "contact": "Contato",
+    "menu": "Menu",
+    "close": "Fechar"
+  },
+  "common": {
+    "dmCta": "Agendar na DM",
+    "dmShort": "DM no Instagram",
+    "instagramHandle": "@rickarttattoo_fl",
+    "viewPortfolio": "Ver portfólio completo",
+    "viewFlash": "Ver catálogo de flash",
+    "allWorks": "Todos",
+    "styleRealism": "Realismo",
+    "styleFineLine": "Fine Line",
+    "styleOldSchool": "Old School",
+    "noResults": "Nenhuma peça neste estilo por enquanto — volte em breve.",
+    "closeLightbox": "Fechar",
+    "next": "Próxima",
+    "prev": "Anterior",
+    "flashBooked": "Reservada",
+    "flashAvailable": "Disponível"
+  },
+  "hero": {
+    "kicker": "Deerfield Beach · Flórida",
+    "title": "Sua história,\nna pele",
+    "subtitle": "12 anos transformando ideias em realismo black & grey, fine line e old school.",
+    "cta": "Agendar na DM"
+  },
+  "bio": {
+    "kicker": "Quem é o Rick",
+    "title": "Doze anos de agulha e ofício",
+    "paragraph1": "Me chamo Rick e sou tatuador profissional há 12 anos. Minha missão é transformar suas ideias, histórias e sentimentos em arte de alta qualidade na pele.",
+    "paragraph2": "Seja para eternizar uma tatuagem pequena e delicada ou desenvolver um projeto grande e exclusivo que cobre todo o corpo, o atendimento é acolhedor, a biossegurança é rigorosa e o padrão é sempre o mais alto possível.",
+    "quote": "Vamos criar sua próxima arte juntos?",
+    "cta": "Conhecer a trajetória"
+  },
+  "styles": {
+    "kicker": "Especialidades",
+    "title": "Três formas de tatuar",
+    "realism": {
+      "name": "Realismo Black and Grey",
+      "description": "Sombra, profundidade e riqueza de detalhes impressionantes."
+    },
+    "fineLine": {
+      "name": "Minimalismo & Fine Line",
+      "description": "Traços finos, precisos e cheios de delicadeza."
+    },
+    "oldSchool": {
+      "name": "Old School",
+      "description": "O charme clássico, com linhas marcantes e presença."
+    }
+  },
+  "featured": {
+    "kicker": "Trabalhos em destaque",
+    "title": "Selecionados do portfólio",
+    "cta": "Ver portfólio completo"
+  },
+  "flashSection": {
+    "kicker": "Prontas para tatuar",
+    "title": "Flash disponíveis",
+    "cta": "Ver catálogo completo"
+  },
+  "studio": {
+    "kicker": "O estúdio",
+    "title": "Espaço privado, atenção total",
+    "paragraph": "Estúdio privado e de fácil acesso, pensado para que o seu atendimento seja só seu — sem sala de espera cheia, sem pressa. Trabalho com reservas antecipadas, somente com hora marcada, para garantir o seu melhor atendimento.",
+    "badges": {
+      "private": "Estúdio privado",
+      "biosafety": "Biossegurança rigorosa",
+      "appointment": "Somente com hora marcada"
+    }
+  },
+  "location": {
+    "kicker": "Onde estamos",
+    "title": "Deerfield Beach, Flórida",
+    "addressLine1": "10 Fairway Drive — Executive Suites, West Building",
+    "addressLine2": "Deerfield Beach, FL 33064",
+    "mapsCta": "Abrir no Google Maps",
+    "cta": "Chamar no Instagram"
+  },
+  "footer": {
+    "tagline": "Tatuagem autoral em Deerfield Beach, FL.",
+    "rights": "Todos os direitos reservados."
+  },
+  "portfolioPage": {
+    "kicker": "Portfólio",
+    "title": "Trabalhos selecionados",
+    "subtitle": "Uma curadoria dos projetos mais recentes. Filtre por estilo ou role para ver tudo."
+  },
+  "flashPage": {
+    "kicker": "Catálogo",
+    "title": "Flash",
+    "subtitle": "Desenhos prontos para tatuar, sem custo de projeto autoral. Disponibilidade muda toda semana — confirme na DM antes de aparecer com a ideia fechada."
+  },
+  "aboutPage": {
+    "kicker": "Sobre",
+    "title": "A trajetória do Rick",
+    "paragraph1": "Me chamo Rick e sou tatuador profissional há 12 anos. Minha missão é transformar suas ideias, histórias e sentimentos em arte de alta qualidade na pele.",
+    "paragraph2": "Ao longo da minha trajetória, me especializei em diversos estilos para entregar exatamente o que você busca: realismo black and grey, para sombra, profundidade e riqueza de detalhes; minimalismo e fine line, para traços finos, precisos e cheios de delicadeza; e old school, com o charme clássico de linhas marcantes e presença.",
+    "paragraph3": "Seja para eternizar uma pequena tatuagem delicada ou para desenvolver um projeto grande e exclusivo que cobre todo o corpo, você pode esperar um atendimento acolhedor, biossegurança rigorosa e a máxima qualidade que você deseja e merece.",
+    "quote": "Vamos criar sua próxima arte juntos?",
+    "cta": "Agendar na DM"
+  },
+  "faq": {
+    "kicker": "Cuidados e dúvidas",
+    "title": "Antes e depois da tatuagem",
+    "beforeTitle": "Antes de agendar",
+    "before": [
+      {
+        "q": "Como eu agendo um horário?",
+        "a": "Todo o atendimento é combinado por DM no Instagram, @rickarttattoo_fl. Mande sua ideia, tamanho aproximado e local do corpo — a partir daí a gente conversa sobre projeto e data."
+      },
+      {
+        "q": "Quanto custa uma tatuagem?",
+        "a": "Cada projeto é orçado individualmente, de acordo com tamanho, estilo, nível de detalhe e tempo de sessão. Não trabalho com tabela fixa — envie sua referência na DM para receber um valor."
+      },
+      {
+        "q": "Preciso de hora marcada?",
+        "a": "Sim. O estúdio é privado e trabalha só com reservas antecipadas e horário marcado, para garantir atenção total durante o seu atendimento."
+      },
+      {
+        "q": "Posso levar acompanhante?",
+        "a": "Como o espaço é privado e reservado a um cliente por vez, o ideal é combinar isso com antecedência pela DM."
+      },
+      {
+        "q": "Tem idade mínima?",
+        "a": "Sim, atendimento apenas para maiores de 18 anos, com documento de identificação."
+      }
+    ],
+    "afterTitle": "Cuidados pós-tatuagem",
+    "after": [
+      {
+        "q": "Como eu limpo a tatuagem recém-feita?",
+        "a": "Lave a região com água morna e sabão neutro, sem perfume, usando a mão limpa — nunca esponja ou bucha. Seque com leves batidinhas usando papel toalha limpo, sem esfregar."
+      },
+      {
+        "q": "Preciso hidratar?",
+        "a": "Sim. Depois de seca, aplique uma camada fina de pomada ou hidratante sem perfume indicado por mim, de 2 a 3 vezes ao dia, nas primeiras semanas de cicatrização."
+      },
+      {
+        "q": "Posso pegar sol, praia ou piscina?",
+        "a": "Evite sol direto, mar, piscina e banheira até a pele estar completamente cicatrizada — costuma levar de 2 a 4 semanas, dependendo do tamanho e da região."
+      },
+      {
+        "q": "É normal descamar e coçar?",
+        "a": "Sim, faz parte do processo. Não arranque as casquinhas nem coce a área — isso pode tirar tinta e prejudicar o resultado final."
+      },
+      {
+        "q": "Quanto tempo leva para cicatrizar de vez?",
+        "a": "A pele costuma parecer cicatrizada em 2 a 3 semanas, mas a cicatrização completa, em camadas mais profundas, leva de 4 a 6 semanas. Qualquer dúvida durante esse período, me chame na DM."
+      }
+    ]
+  },
+  "contactPage": {
+    "kicker": "Contato",
+    "title": "Vamos criar sua próxima arte juntos?",
+    "subtitle": "Todo atendimento é combinado por hora marcada, direto na DM do Instagram.",
+    "addressTitle": "Endereço",
+    "addressLine1": "10 Fairway Drive — Executive Suites, West Building",
+    "addressLine2": "Deerfield Beach, FL 33064",
+    "mapsCta": "Abrir no Google Maps",
+    "instagramTitle": "Instagram",
+    "instagramSubtitle": "Envie sua ideia, referência e tamanho aproximado.",
+    "cta": "Chamar no Instagram"
+  }
+}
