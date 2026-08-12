@@ -15,7 +15,7 @@ const { lang, items, gallery, emptyText = '' } = Astro.props;
 const styleLabel: Record<Trabalho['estilo'], string> = {
   realismo: lang === 'pt' ? 'Realismo' : 'Realism',
   'fine-line': 'Fine Line',
-  'old-school': 'Old School',
+  'old-school': lang === 'pt' ? 'Moderna & Colorida' : 'Modern & Colorful',
 };
 
 const withFull = await Promise.all(
