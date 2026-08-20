@@ -7,8 +7,8 @@ import { trabalhos } from '../../data/trabalhos';
 const lang = 'pt' as const;
 const t = useTranslations(lang);
 
-const img1 = trabalhos.find((tr) => tr.id === 'espartano-aguia')!.imagem;
-const img2 = trabalhos.find((tr) => tr.id === 'bussola')!.imagem;
+const figureIds = ['espartano-aguia', 'bussola', 'itachi', 'onca-flores', 'pomo-de-ouro', 'odin'];
+const figureImages = figureIds.map((id) => trabalhos.find((tr) => tr.id === id)!.imagem);
 ---
 
 <Base lang={lang} page="about" title={t.meta.titleAbout} description={t.meta.descriptionHome}>
@@ -26,12 +26,19 @@ const img2 = trabalhos.find((tr) => tr.id === 'bussola')!.imagem;
         </a>
       </div>
       <div class="figures">
-        <figure>
-          <Image src={img1} alt="" widths={[420, 700]} sizes="(min-width: 860px) 30vw, 80vw" loading="eager" />
-        </figure>
-        <figure class="offset">
-          <Image src={img2} alt="" widths={[380, 600]} sizes="(min-width: 860px) 24vw, 70vw" loading="lazy" />
-        </figure>
+        {
+          figureImages.map((img, i) => (
+            <figure class:list={{ offset: i % 2 === 1 }}>
+              <Image
+                src={img}
+                alt=""
+                widths={[300, 500]}
+                sizes="(min-width: 860px) 20vw, 44vw"
+                loading={i < 2 ? 'eager' : 'lazy'}
+              />
+            </figure>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -62,19 +69,26 @@ const img2 = trabalhos.find((tr) => tr.id === 'bussola')!.imagem;
   }
 
   .figures {
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
   }
 
   .figures figure {
     margin: 0;
     border: 1px solid var(--bone-faint);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .figures figure :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .figures .offset {
-    margin-top: -3rem;
-    margin-left: 18%;
-    width: 78%;
-    border: 4px solid var(--ink);
+    margin-top: 2.75rem;
   }
 
   @media (min-width: 860px) {

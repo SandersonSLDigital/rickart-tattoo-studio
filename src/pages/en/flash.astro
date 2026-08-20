@@ -11,7 +11,10 @@ const t = useTranslations(lang);
 <Base lang={lang} page="flash" title={t.meta.titleFlash} description={t.meta.descriptionHome}>
   <section class="section page-head">
     <div class="container">
-      <p class="eyebrow">{t.flashPage.kicker}</p>
+      <div class="head-row">
+        <p class="eyebrow">{t.flashPage.kicker}</p>
+        <p class="count">{t.flashPage.countLabel.replace('{n}', String(flashPieces.length))}</p>
+      </div>
       <h1>{t.flashPage.title}</h1>
       <p class="lede">{t.flashPage.subtitle}</p>
     </div>
@@ -33,6 +36,23 @@ const t = useTranslations(lang);
 
   .page-head h1 {
     margin-block: 0.6rem 1rem;
+  }
+
+  .head-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .count {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin: 0;
   }
 
   .lede {

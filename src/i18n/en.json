@@ -27,7 +27,7 @@
     "allWorks": "All",
     "styleRealism": "Realism",
     "styleFineLine": "Fine Line",
-    "styleOldSchool": "Modern & Colorful",
+    "styleOldSchool": "Color Tattoo",
     "noResults": "Nothing in this style yet — check back soon.",
     "closeLightbox": "Close",
     "next": "Next",
@@ -61,7 +61,7 @@
       "description": "Thin, precise strokes, full of delicacy."
     },
     "oldSchool": {
-      "name": "Old School",
+      "name": "Color Tattoo",
       "description": "Classic charm, with bold lines and presence."
     }
   },
@@ -105,7 +105,8 @@
   "flashPage": {
     "kicker": "Catalog",
     "title": "Flash",
-    "subtitle": "Ready-to-tattoo designs, no custom design fee. Availability changes weekly — confirm on DM before showing up set on a piece."
+    "subtitle": "Ready-to-tattoo designs, no custom design fee. Availability changes weekly — confirm on DM before showing up set on a piece. When you message us, mention the piece number (e.g. #037).",
+    "countLabel": "{n} designs on the wall"
   },
   "aboutPage": {
     "kicker": "About",

@@ -20,6 +20,12 @@ const styleData = {
   'old-school': t.styles.oldSchool,
 }[estilo];
 
+const shortLabel = {
+  realismo: t.common.styleRealism,
+  'fine-line': t.common.styleFineLine,
+  'old-school': t.common.styleOldSchool,
+}[estilo];
+
 const href = `${pathFor('portfolio', lang)}?estilo=${estilo}`;
 ---
 
@@ -28,7 +34,7 @@ const href = `${pathFor('portfolio', lang)}?estilo=${estilo}`;
     <Image src={image} alt="" widths={[400, 700]} sizes="(min-width: 860px) 33vw, 90vw" loading="lazy" />
   </div>
   <div class="plate">
-    <p class="eyebrow">{estilo === 'old-school' ? 'Old School' : estilo === 'fine-line' ? 'Fine Line' : 'Realismo'}</p>
+    <p class="eyebrow">{shortLabel}</p>
     <h3>{styleData.name}</h3>
     <p class="desc">{styleData.description}</p>
   </div>

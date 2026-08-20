@@ -23,30 +23,33 @@ const withFull = await Promise.all(
 
 <div class="flash-grid">
   {
-    withFull.map((item, i) => (
-      <figure class="flash-item">
-        <button
-          type="button"
-          class="trigger"
-          data-lightbox-trigger
-          data-gallery={gallery}
-          data-full={item.fullSrc}
-          data-caption=""
-          aria-label={`Flash ${i + 1}`}
-        >
-          <Image
-            src={item.imagem}
-            alt=""
-            widths={[300, 500]}
-            sizes="(min-width: 860px) 22vw, 45vw"
-            loading="lazy"
-          />
-          <span class={`badge ${item.disponivel ? 'available' : 'booked'}`}>
-            {item.disponivel ? t.common.flashAvailable : t.common.flashBooked}
-          </span>
-        </button>
-      </figure>
-    ))
+    withFull.map((item, i) => {
+      const ref = String(i + 1).padStart(3, '0');
+      const spotlight = (i + 1) % 7 === 0;
+      return (
+        <figure class:list={['flash-item', { spotlight }]}>
+          <button
+            type="button"
+            class="trigger"
+            data-lightbox-trigger
+            data-gallery={gallery}
+            data-full={item.fullSrc}
+            data-caption={`#${ref}`}
+            aria-label={`Flash #${ref}`}
+          >
+            <Image
+              src={item.imagem}
+              alt=""
+              widths={[300, 500, 800]}
+              sizes={spotlight ? '(min-width: 1000px) 44vw, 45vw' : '(min-width: 860px) 22vw, 45vw'}
+              loading="lazy"
+            />
+            <span class="ref">#{ref}</span>
+            {!item.disponivel && <span class="badge booked">{t.common.flashBooked}</span>}
+          </button>
+        </figure>
+      );
+    })
   }
 </div>
 
@@ -84,6 +87,19 @@ const withFull = await Promise.all(
     transform: scale(1.04);
   }
 
+  .ref {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    padding: 0.3em 0.55em;
+    background: rgba(11, 11, 10, 0.78);
+    color: var(--ash);
+    border: 1px solid var(--bone-faint);
+  }
+
   .badge {
     position: absolute;
     top: 0.6rem;
@@ -98,11 +114,6 @@ const withFull = await Promise.all(
     border: 1px solid var(--bone-faint);
   }
 
-  .badge.available {
-    color: var(--bone);
-    border-color: var(--ash);
-  }
-
   @media (min-width: 640px) {
     .flash-grid {
       grid-template-columns: repeat(3, 1fr);
@@ -113,6 +124,14 @@ const withFull = await Promise.all(
     .flash-grid {
       grid-template-columns: repeat(4, 1fr);
       gap: 1.1rem;
+    }
+
+    .flash-item.spotlight {
+      grid-column: span 2;
+    }
+
+    .flash-item.spotlight .trigger {
+      aspect-ratio: 8 / 5;
     }
   }
 </style>

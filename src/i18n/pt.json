@@ -27,7 +27,7 @@
     "allWorks": "Todos",
     "styleRealism": "Realismo",
     "styleFineLine": "Fine Line",
-    "styleOldSchool": "Moderna & Colorida",
+    "styleOldSchool": "Tattoo Colorida",
     "noResults": "Nenhuma peça neste estilo por enquanto — volte em breve.",
     "closeLightbox": "Fechar",
     "next": "Próxima",
@@ -61,7 +61,7 @@
       "description": "Traços finos, precisos e cheios de delicadeza."
     },
     "oldSchool": {
-      "name": "Old School",
+      "name": "Tattoo Colorida",
       "description": "O charme clássico, com linhas marcantes e presença."
     }
   },
@@ -105,7 +105,8 @@
   "flashPage": {
     "kicker": "Catálogo",
     "title": "Flash",
-    "subtitle": "Desenhos prontos para tatuar, sem custo de projeto autoral. Disponibilidade muda toda semana — confirme na DM antes de aparecer com a ideia fechada."
+    "subtitle": "Desenhos prontos para tatuar, sem custo de projeto autoral. Disponibilidade muda toda semana — confirme na DM antes de aparecer com a ideia fechada. Ao chamar no direct, cite o número da peça (ex.: #037).",
+    "countLabel": "{n} desenhos no mural"
   },
   "aboutPage": {
     "kicker": "Sobre",
